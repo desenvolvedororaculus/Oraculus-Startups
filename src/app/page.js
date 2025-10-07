@@ -86,7 +86,7 @@ export default function Home() {
             </h1>
           </div>
           <p className="text-gray-400 text-center mt-2 max-w-2xl mx-auto">
-            Descubra projetos inovadores e oportunidades de investimento
+          Criar o extraordinário exige ousadia, caos e velocidade. Não esperamos a ideia perfeita — a construímos todos os dias 
           </p>
         </div>
       </header>
@@ -130,6 +130,18 @@ export default function Home() {
         isOpen={isModalOpen}
         onClose={handleCloseModal}
       />
+
+      {/* Footer */}
+      <footer className="border-t border-gray-800 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-2xl font-bold text-white mb-2">
+            Abandone o comum. Crie o extraordinário.
+          </p>
+          <p className="text-gray-400 text-sm">
+            Oraculus Startups - Transformando ideias em realidade
+          </p>
+        </div>
+      </footer>
     </div>
   )
 }

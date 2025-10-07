@@ -44,6 +44,12 @@
 - **Modal**: Botão "Investir" redireciona para WhatsApp
 - **Contato Direto**: Facilita comunicação com investidores
 
+### 7. **Rodapé da Página Principal**
+- **Frase Inspiradora**: "Abandone o comum. Crie o extraordinário."
+- **Design**: Rodapé com borda superior e espaçamento adequado
+- **Identidade**: Mantém consistência com o design dark mode
+- **Mensagem**: Reforça a proposta de valor da Oraculus
+
 ## 🚀 Como Testar
 
 1. **Executar o projeto**:
