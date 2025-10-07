@@ -1,4 +1,4 @@
-# Portfolio de Projetos
+# Oraculus Startups - Portfolio de Projetos
 
 Um portfólio moderno e responsivo para exibir projetos com conexão ao Supabase.
 

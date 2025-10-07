@@ -116,7 +116,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
           <div className="flex gap-4 pt-6 border-t border-gray-700">
             <button
               onClick={() => window.open(project.link, '_blank')}
-              className="flex-1 bg-white text-black px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100 hover:scale-105"
+              className="flex-1 bg-orange-500 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-orange-600 hover:scale-105"
             >
               Acessar Projeto
             </button>

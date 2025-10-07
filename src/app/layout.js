@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Portfolio de Projetos",
+  title: "Oraculus Startups",
   description: "Portfólio de projetos inovadores para investidores e clientes",
 };
 

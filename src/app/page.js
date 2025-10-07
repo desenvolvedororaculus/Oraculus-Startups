@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import ProjectCard from '../components/ProjectCard'
 import ProjectModal from '../components/ProjectModal'
 import { fetchProjects } from '../services/projectService'
@@ -70,9 +71,20 @@ export default function Home() {
       {/* Header */}
       <header className="border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h1 className="text-4xl font-bold text-white text-center">
-            Portfolio de Projetos
-          </h1>
+          {/* Logo e Título */}
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <Image
+              src="/images/logos/Laranja.png"
+              alt="Oraculus"
+              width={60}
+              height={60}
+              className="h-12 w-12"
+              priority
+            />
+            <h1 className="text-4xl font-bold text-white">
+              Oraculus Startups
+            </h1>
+          </div>
           <p className="text-gray-400 text-center mt-2 max-w-2xl mx-auto">
             Descubra projetos inovadores e oportunidades de investimento
           </p>
@@ -94,7 +106,7 @@ export default function Home() {
             {/* Stats */}
             <div className="mb-8">
               <p className="text-gray-400">
-                {projects.length} {projects.length === 1 ? 'projeto encontrado' : 'projetos encontrados'}
+                {projects.length} {projects.length === 1 ? 'projeto' : 'projetos'}
               </p>
             </div>
 

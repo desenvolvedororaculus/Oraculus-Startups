@@ -67,7 +67,7 @@ export default function ProjectCard({ project, onCardClick }) {
             e.stopPropagation()
             window.open(project.link, '_blank')
           }}
-          className="flex-1 bg-white text-black px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 hover:bg-gray-100 hover:scale-105"
+          className="flex-1 bg-orange-500 text-white px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 hover:bg-orange-600 hover:scale-105"
         >
           Acessar
         </button>
