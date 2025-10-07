@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio de Projetos
 
-## Getting Started
+Um portfólio moderno e responsivo para exibir projetos com conexão ao Supabase.
 
-First, run the development server:
+## 🚀 Funcionalidades
+
+- **Grade Responsiva**: Cards simplificados com informações essenciais
+- **Modal de Detalhes**: Visualização completa em tela cheia
+- **Dark Mode**: Design moderno e minimalista
+- **Conexão Supabase**: Busca dinâmica de dados do banco
+- **Responsivo**: Otimizado para desktop e mobile
+
+## 🛠️ Tecnologias
+
+- **Next.js 15** - Framework React
+- **Tailwind CSS** - Estilização
+- **Supabase** - Banco de dados
+- **JavaScript** - Linguagem principal
+
+## 📋 Pré-requisitos
+
+- Node.js 18+ 
+- Conta no Supabase
+- Projeto Supabase configurado
+
+## ⚙️ Configuração
+
+### 1. Instalar dependências
+
+```bash
+npm install
+```
+
+### 2. Configurar Supabase
+
+1. Crie um projeto no [Supabase](https://supabase.com)
+2. Crie uma tabela chamada `projetos` com os seguintes campos:
+
+```sql
+CREATE TABLE projetos (
+  id SERIAL PRIMARY KEY,
+  titulo TEXT NOT NULL,
+  resumo TEXT NOT NULL,
+  data_lancamento DATE NOT NULL,
+  tag TEXT CHECK (tag IN ('ALPHA', 'BETA')) NOT NULL,
+  link TEXT NOT NULL,
+  descricao TEXT NOT NULL,
+  proposta_valor TEXT NOT NULL,
+  mercado TEXT NOT NULL,
+  tecnologia TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+```
+
+3. Configure as variáveis de ambiente no arquivo `.env.local`:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=sua_url_do_supabase
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anonima_do_supabase
+```
+
+### 3. Executar o projeto
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) para ver o resultado.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📊 Estrutura do Banco de Dados
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| `id` | SERIAL | Chave primária |
+| `titulo` | TEXT | Título do projeto |
+| `resumo` | TEXT | Resumo para o card |
+| `data_lancamento` | DATE | Data de lançamento |
+| `tag` | ENUM | ALPHA ou BETA |
+| `link` | TEXT | Link para acessar o projeto |
+| `descricao` | TEXT | Descrição completa |
+| `proposta_valor` | TEXT | Proposta de valor |
+| `mercado` | TEXT | Mercado alvo |
+| `tecnologia` | TEXT | Tecnologias utilizadas |
 
-## Learn More
+## 🎨 Design
 
-To learn more about Next.js, take a look at the following resources:
+- **Modo**: Dark Mode First
+- **Cores**: Preto/cinza escuro com acentos sutis
+- **Tipografia**: Geist Sans (sem serifa)
+- **Layout**: Grade responsiva com modal em tela cheia
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📱 Responsividade
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Desktop**: Grade de 3 colunas
+- **Tablet**: Grade de 2 colunas  
+- **Mobile**: Grade de 1 coluna
 
-## Deploy on Vercel
+## 🔧 Scripts Disponíveis
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `npm run dev` - Executa em modo desenvolvimento
+- `npm run build` - Gera build de produção
+- `npm run start` - Executa build de produção
+- `npm run lint` - Executa linter
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📝 Notas
+
+- O botão "Investir" redireciona para `/contato` (pode ser customizado)
+- O modal abre ao clicar em qualquer parte do card (exceto nos botões)
+- Suporte a tecla ESC para fechar o modal
+- Estados de loading e erro implementados
