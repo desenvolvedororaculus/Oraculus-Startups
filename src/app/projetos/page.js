@@ -1,20 +1,32 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { useAuth } from '../../contexts/AuthContext'
 import ProjectForm from '../../components/ProjectForm'
 import { fetchProjects, createProject, updateProject, deleteProject } from '../../services/projectService'
 
 export default function ProjetosPage() {
+  const { user, loading: authLoading, signOut } = useAuth()
   const [projects, setProjects] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [showForm, setShowForm] = useState(false)
   const [editingProject, setEditingProject] = useState(null)
+  const router = useRouter()
 
   useEffect(() => {
-    loadProjects()
-  }, [])
+    if (!authLoading && !user) {
+      router.push('/login')
+    }
+  }, [user, authLoading, router])
+
+  useEffect(() => {
+    if (user) {
+      loadProjects()
+    }
+  }, [user])
 
   const loadProjects = async () => {
     try {
@@ -72,6 +84,11 @@ export default function ProjetosPage() {
     setEditingProject(null)
   }
 
+  const handleLogout = async () => {
+    await signOut()
+    router.push('/')
+  }
+
   const formatDate = (dateString) => {
     const date = new Date(dateString)
     return date.toLocaleDateString('pt-BR', {
@@ -90,6 +107,21 @@ export default function ProjetosPage() {
       default:
         return 'bg-gray-500/20 text-gray-300 border-gray-500/30'
     }
+  }
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
+          <p className="text-white text-lg">Verificando autenticação...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (!user) {
+    return null // Será redirecionado para login
   }
 
   if (loading) {
@@ -126,20 +158,33 @@ export default function ProjetosPage() {
       {/* Header */}
       <header className="border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {/* Logo e Título */}
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <Image
-              src="/images/logos/Laranja.png"
-              alt="Oraculus"
-              width={60}
-              height={60}
-              className="h-12 w-12"
-              priority
-            />
-            <h1 className="text-4xl font-bold text-white">
-              Gerenciar Projetos
-            </h1>
+          {/* Logo, Título e Botão de Logout */}
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-4">
+              <Image
+                src="/images/logos/Laranja.png"
+                alt="Oraculus"
+                width={60}
+                height={60}
+                className="h-12 w-12"
+                priority
+              />
+              <h1 className="text-4xl font-bold text-white">
+                Gerenciar Projetos
+              </h1>
+            </div>
+            
+            <button
+              onClick={handleLogout}
+              className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors flex items-center gap-2"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              Sair
+            </button>
           </div>
+          
           <p className="text-gray-400 text-center mt-2 max-w-2xl mx-auto">
             Adicione, edite ou remova projetos do portfólio
           </p>
