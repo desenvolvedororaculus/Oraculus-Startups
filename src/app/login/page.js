@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { useAuth } from '../../contexts/AuthContext'
 import Image from 'next/image'
 
@@ -94,12 +95,12 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-6 text-center">
-            <a
+            <Link
               href="/"
               className="text-gray-400 hover:text-white transition-colors text-sm"
             >
               ← Voltar ao portfólio
-            </a>
+            </Link>
           </div>
         </div>
       </div>
