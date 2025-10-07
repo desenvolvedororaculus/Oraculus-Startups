@@ -74,8 +74,8 @@ export default function ProjectCard({ project, onCardClick }) {
         <button
           onClick={(e) => {
             e.stopPropagation()
-            // Link fixo para investimento
-            window.open('/contato', '_blank')
+            // Link fixo para investimento via WhatsApp
+            window.open('https://wa.me/5584994094278', '_blank')
           }}
           className="flex-1 bg-gray-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 hover:bg-gray-600 hover:scale-105"
         >

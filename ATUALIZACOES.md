@@ -38,6 +38,12 @@
 - **CRUD Completo**: Create, Read, Update, Delete
 - **Link de Acesso**: Botão "Gerenciar Projetos" na página principal
 
+### 6. **Link de Investimento Atualizado**
+- **WhatsApp**: Link fixo alterado para https://wa.me/5584994094278
+- **Cards**: Botão "Investir" redireciona para WhatsApp
+- **Modal**: Botão "Investir" redireciona para WhatsApp
+- **Contato Direto**: Facilita comunicação com investidores
+
 ## 🚀 Como Testar
 
 1. **Executar o projeto**:

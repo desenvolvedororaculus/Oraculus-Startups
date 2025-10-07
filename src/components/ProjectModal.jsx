@@ -121,7 +121,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
               Acessar Projeto
             </button>
             <button
-              onClick={() => window.open('/contato', '_blank')}
+              onClick={() => window.open('https://wa.me/5584994094278', '_blank')}
               className="flex-1 bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-gray-600 hover:scale-105"
             >
               Investir
